@@ -13,6 +13,17 @@
         android:theme="@style/Theme.BathingSites"
         tools:targetApi="31">
         <activity
+            android:name=".AddBathingSiteActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".NewBathingSiteActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".BathingSitesView"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
