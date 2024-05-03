@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.Objects;
 
@@ -17,6 +21,8 @@ import java.util.Objects;
  * @Author Andreas Backman
  */
 public class MainActivity extends AppCompatActivity {
+
+    private int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +40,31 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
 
+
+
         FloatingActionButton fab = findViewById(R.id.add_bathing_site_button); // Get the FloatingActionButton
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddBathingSiteActivity.class); // Start AddBathingSiteActivity
                 startActivity(intent);
-
-                int amount = updateBathingSiteCount(); // Update the amount of bathing sites
-                BathingSitesView bathingSitesView = findViewById(R.id.bathingSitesView); // Get the BathingSitesView
-                bathingSitesView.setAmountOfBathingSites(amount); // Set the amount of bathing sites
             }
         });
+
+
+//        BathingSitesFragment bathingSitesFragment = (BathingSitesFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+//        if (bathingSitesFragment != null) {
+//            BathingSitesView bathingSitesView = bathingSitesFragment.getBathingSitesView(); // Get the ImageView for the bathing sites image
+//
+//            bathingSitesView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    System.out.println("BathingSitesView clicked");
+//                    int amount = updateBathingSiteCount(); // Update the amount of bathing sites// Get the BathingSitesView
+//                    bathingSitesView.setAmountOfBathingSites(amount); // Set the amount of bathing sites
+//                }
+//            });
+//        }
     }
 
     @Override
