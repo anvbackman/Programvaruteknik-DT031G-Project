@@ -3,8 +3,6 @@ package se.miun.anba2205.dt031g.bathingsites;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,10 +54,10 @@ public class BathingSitesView extends ConstraintLayout implements View.OnClickLi
     @Override
     public void onClick(View v) {
         counter++;
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("counter", counter);
+        SharedPreferences.Editor editor = sharedPreferences.edit(); // Get the editor
+        editor.putInt("counter", counter); // Put the counter value in the SharedPreferences
         editor.apply();
 
-        setAmountOfBathingSites(counter);
+        setAmountOfBathingSites(counter); // Update the TextView with the counter value
     }
 }
